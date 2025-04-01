@@ -10,8 +10,8 @@ then
   USER_ID=$($PSQL "SELECT user_id FROM users WHERE username='$USERNAME'")
   echo "Welcome, $USERNAME! It looks like this is your first time here."
 else
-  GAMES_PLAYED=$($PSQL "SELECT games_played FROM users where user_id=$USER_ID")
-  BEST_GAME=$($PSQL "SELECT best_game from users where user_id=$USER_ID")
+  GAMES_PLAYED=$($PSQL "select games_played from users where user_id=$USER_ID")
+  BEST_GAME=$($PSQL "select best_game from users where user_id=$USER_ID")
   echo "Welcome back, $USERNAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
 fi
 NUM_OF_GUESSES=0
