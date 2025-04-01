@@ -31,4 +31,7 @@ do
     echo "It's higher than that, guess again:"
   fi
 done
-echo ""
+echo "You guessed it in $NUM_OF_GUESSES tries. The secret number was $SNUMBER. Nice job!"
+USER_ID=$($PSQL "select user_id from users where username="$USERNAME"")
+UPDATE_GAME_COUNT=$($PSQL "update users set games_played=games_played+1 where user_id=$USER_ID")
+UPDATE_BEST_GAME=$($PSQL "update users set best_game=least(best_game, $NUM_OF_GUESSES) where user_id=$USER_ID")
