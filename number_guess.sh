@@ -28,7 +28,8 @@ do
   elif [[ $GUESS -lt $SNUMBER ]]
   then
     echo "It's higher than that, guess again:"
-  else 
+  elif [[ $GUESS -gt $SNUMBER ]]
+  then
     echo "It's lower than that, guess again:"
   fi
 done
